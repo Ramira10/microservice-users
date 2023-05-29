@@ -19,17 +19,17 @@ export class UserController {
     }
 
     @MessagePattern(UserMSG.FIND_ONE)
-    findOne(@Payload('id') id: string) {
+    findOne(@Payload() id: string) {
         return this.userService.findOne(id);
     }
 
     @MessagePattern(UserMSG.UPDATE)
-    update(@Payload('id') payload: any) {
+    update(@Payload() payload: any) {
         return this.userService.update(payload.id, payload.userDTO);
     }
 
     @MessagePattern(UserMSG.DELETE)
-    delete(@Payload('id') id: string) {
+    delete(@Payload() id: string) {
         return this.userService.delete(id);
     }
 }
